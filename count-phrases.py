@@ -12,9 +12,13 @@ def count_common_phrases(text_file_path):
     else:
       common_phrase_dict[new_phrase] += 1
     counter += 1
-  print common_phrase_dict
+  most_frequent_phrases = sorted(common_phrase_dict.items(), key=lambda x: x[1], reverse=True)
+  return most_frequent_phrases[:100]
+
+def makes_pretty(text_file_path):
+  popular_phrase = count_common_phrases(text_file_path)
+  for pair in popular_phrase:
+    print "{} -{}".format(pair[0], pair[1])
 
 
-count_common_phrases('../moby_dick.txt')
-
-# import pdb; pdb.set_trace()
+makes_pretty('../moby_dick.txt')
