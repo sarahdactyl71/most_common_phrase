@@ -1,24 +1,34 @@
 
+def get_words_from_files(text_file_path):
+  words = []
+  for files in text_file_path:
+    words += open(files).read().lower().split()
+  return words
+
 def count_common_phrases(text_file_path):
-  words = open(text_file_path).read().lower().split()
+  words = get_words_from_files(text_file_path)
   common_phrase_dict = {}
   counter = 0
   while counter < len(words):
     sections = slice(counter, (counter+3))
     phrase = words[sections]
-    new_phrase = ' '.join(phrase)
-    if not new_phrase in common_phrase_dict:
-      common_phrase_dict[new_phrase] = 1
+    three_word_sequence = ' '.join(phrase)
+    if not three_word_sequence in common_phrase_dict:
+      common_phrase_dict[three_word_sequence] = 1
     else:
-      common_phrase_dict[new_phrase] += 1
+      common_phrase_dict[three_word_sequence] += 1
     counter += 1
   most_frequent_phrases = sorted(common_phrase_dict.items(), key=lambda x: x[1], reverse=True)
   return most_frequent_phrases[:100]
 
-def makes_pretty(text_file_path):
+def formats_output(text_file_path):
   popular_phrase = count_common_phrases(text_file_path)
   for pair in popular_phrase:
-    print "{} -{}".format(pair[0], pair[1])
+    print "{} - {}".format(pair[0], pair[1])
 
 
-makes_pretty('../moby_dick.txt')
+formats_output(['../origin_of_species.txt', '../moby_dick.txt'])
+
+# species length = 209750
+# moby length = 215830
+# import pdb; pdb.set_trace()
