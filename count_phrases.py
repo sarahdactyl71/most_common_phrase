@@ -62,3 +62,4 @@ formats_output(phrase)
 # import pdb; pdb.set_trace()
 
 # cat ../moby_dick.txt | python ./count_phrases.py
+# python -m nose
