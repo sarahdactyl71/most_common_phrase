@@ -43,8 +43,10 @@ def formats_output(popular_phrase):
     print "{} - {}".format(pair[0], pair[1])
 
 if not sys.stdin.isatty():
-  stdin_file = sys.stdin
-  formats_output(stdin_file)
+  words = get_words_from_files(sys.stdin)
+  cleaned_words = clean_word_list(words)
+  phrase = count_common_phrases(cleaned_words)
+  formats_output(phrase)
 
 # formats_output(['../origin_of_species.txt', '../moby_dick.txt'])
 # formats_output(['../moby_dick.txt'])
