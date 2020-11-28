@@ -59,7 +59,8 @@ formats_output(phrase)
 
 # species length = 209750
 # moby length = 215830
-# import pdb; pdb.set_trace()
+# import pdb; pdb.set_trace() 
 
 # cat ../moby_dick.txt | python ./count_phrases.py
+# python count_phrases.py
 # python -m nose

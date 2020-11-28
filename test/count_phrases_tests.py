@@ -55,4 +55,3 @@ def test_count_common_phrases_from_file():
   assert_equal(phrase[1], ('the same species', 130))
   assert_equal(phrase[2], ('conditions of life', 125))
   assert_equal(phrase[3], ('in the same', 117))
-
