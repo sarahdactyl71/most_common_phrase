@@ -5,15 +5,24 @@ def get_words_from_files(text_file_path):
   words = []
   if not sys.stdin.isatty():
     words = sys.stdin.read().lower().split()
+    return clean_word_list(words)
   else:
     for files in text_file_path:
       words += open(files).read().lower().split()
-      # strip_punctuation(words)
-  return words
+      return clean_word_list(words)
 
-def strip_punctuation(words):
-  #Need to table for now
-  import pdb; pdb.set_trace()
+def clean_word_list(words):
+  cleaned_list = []
+  for word in words:
+      word  = re.sub('[!"#$%&()*+,./:;<=>?@[\]^_`{|}~]', '', word)
+      word = re.sub('[-]', ' ', word)
+      if ' ' in word:
+        word_list = word.split()
+        cleaned_list += word_list
+      if word != '' and word != ' ':
+        cleaned_list.append(word) 
+  return cleaned_list
+
 
 def count_common_phrases(text_file_path):
   words = get_words_from_files(text_file_path)
