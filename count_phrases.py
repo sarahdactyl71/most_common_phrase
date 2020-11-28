@@ -48,7 +48,7 @@ if not sys.stdin.isatty():
   phrase = count_common_phrases(cleaned_words)
   formats_output(phrase)
 
-#TEST RUNNER
+#FILE RUNNER
 file_path = input("Enter your textfile path: ") 
 words = get_words_from_files(([file_path]))
 cleaned_words = clean_word_list(words)

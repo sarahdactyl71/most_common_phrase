@@ -26,9 +26,7 @@ There are two ways to process text files.
 - this will output passing values for the tests
 
 ## Plans for the Future
-I would really like this to be a playfround for a fully fledged docker app to do more language processing on. 
-This means learning a bit more about docker's functionality as well as seeing how that connected to other services
-like Kubernetes. 
+I would really like this to be a playground for a fully fledged docker app to do more language processing on. 
+This means learning a bit more about docker's full functionality. 
 
-This brings me to my next plan, that I would like to refactor to consider handling huge amounts of data at one time. 
-I am not sure what that would take, but I imagine that it would involve a bit of learning about scalability. 
+I would also like to add support for unicode characters.
