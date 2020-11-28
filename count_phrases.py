@@ -5,11 +5,11 @@ def get_words_from_files(text_file_path):
   words = []
   if not sys.stdin.isatty():
     words = sys.stdin.read().lower().split()
-    return clean_word_list(words)
+    return words
   else:
     for files in text_file_path:
       words += open(files).read().lower().split()
-      return clean_word_list(words)
+      return words
 
 def clean_word_list(words):
   cleaned_list = []
@@ -49,10 +49,10 @@ if not sys.stdin.isatty():
 # formats_output(['../origin_of_species.txt', '../moby_dick.txt'])
 # formats_output(['../moby_dick.txt'])
 
-###Run some tests
-# files = get_words_from_files(text_file_path)
+#TEST RUNNER
 words = get_words_from_files((['../moby_dick.txt']))
-phrase =  count_common_phrases(words)
+cleaned_words = clean_word_list(words)
+phrase = count_common_phrases(cleaned_words)
 formats_output(phrase)
 
 # species length = 209750
