@@ -1,4 +1,5 @@
 import sys
+import re
 
 def get_words_from_files(text_file_path):
   words = []
@@ -7,7 +8,12 @@ def get_words_from_files(text_file_path):
   else:
     for files in text_file_path:
       words += open(files).read().lower().split()
+      # strip_punctuation(words)
   return words
+
+def strip_punctuation(words):
+  #Need to table for now
+  import pdb; pdb.set_trace()
 
 def count_common_phrases(text_file_path):
   words = get_words_from_files(text_file_path)
@@ -35,7 +41,7 @@ if not sys.stdin.isatty():
   formats_output(stdin_file)
 
 # formats_output(['../origin_of_species.txt', '../moby_dick.txt'])
-# formats_output(['../moby_dick.txt'])
+formats_output(['../moby_dick.txt'])
 
 # species length = 209750
 # moby length = 215830
