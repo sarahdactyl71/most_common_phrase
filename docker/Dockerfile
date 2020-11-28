@@ -1,7 +1,10 @@
 FROM python:3
 
-ADD count_phrases.py/
+WORKDIR /usr/src/app
 
-RUN pip install nose
+COPY requirements.txt ./
+RUN pip install --no-cache-dir -r requirements.txt
 
-CMD  ["python", "./count_phrases.py"]
+COPY . .
+
+CMD [ "python", "./count_phrases.py" ]
