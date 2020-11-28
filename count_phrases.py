@@ -40,7 +40,7 @@ def count_common_phrases(words):
 
 def formats_output(popular_phrase):
   for pair in popular_phrase:
-    print "{} - {}".format(pair[0], pair[1])
+    print("{} - {}".format(pair[0], pair[1]))
 
 if not sys.stdin.isatty():
   words = get_words_from_files(sys.stdin)

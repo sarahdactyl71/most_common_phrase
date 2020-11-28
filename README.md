@@ -9,7 +9,7 @@ cat ../moby_dick.txt | python ./count_phrases.py
 python count_phrases.py
 
 ## Running the Test Suite
-python -m nosepython -m nose
+python -m nose
 
 ## Plans for the Future
 
