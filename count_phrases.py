@@ -49,7 +49,8 @@ if not sys.stdin.isatty():
   formats_output(phrase)
 
 #TEST RUNNER
-words = get_words_from_files((['origin_of_species.txt']))
+file_path = input("Enter your textfile path: ") 
+words = get_words_from_files(([file_path]))
 cleaned_words = clean_word_list(words)
 phrase = count_common_phrases(cleaned_words)
 formats_output(phrase)
