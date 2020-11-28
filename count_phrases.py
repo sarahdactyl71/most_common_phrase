@@ -23,8 +23,7 @@ def clean_word_list(words):
         cleaned_list.append(word) 
   return cleaned_list
 
-def count_common_phrases(text_file_path):
-  words = get_words_from_files(text_file_path)
+def count_common_phrases(words):
   common_phrase_dict = {}
   counter = 0
   while counter < len(words):
@@ -39,8 +38,7 @@ def count_common_phrases(text_file_path):
   most_frequent_phrases = sorted(common_phrase_dict.items(), key=lambda x: x[1], reverse=True)
   return most_frequent_phrases[:100]
 
-def formats_output(text_file_path):
-  popular_phrase = count_common_phrases(text_file_path)
+def formats_output(popular_phrase):
   for pair in popular_phrase:
     print "{} - {}".format(pair[0], pair[1])
 
@@ -49,10 +47,16 @@ if not sys.stdin.isatty():
   formats_output(stdin_file)
 
 # formats_output(['../origin_of_species.txt', '../moby_dick.txt'])
-formats_output(['../moby_dick.txt'])
+# formats_output(['../moby_dick.txt'])
+
+###Run some tests
+# files = get_words_from_files(text_file_path)
+words = get_words_from_files((['../moby_dick.txt']))
+phrase =  count_common_phrases(words)
+formats_output(phrase)
 
 # species length = 209750
 # moby length = 215830
 # import pdb; pdb.set_trace()
 
-# cat ../moby_dick.txt | python ./count-phrases.py
+# cat ../moby_dick.txt | python ./count_phrases.py
