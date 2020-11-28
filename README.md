@@ -26,9 +26,9 @@ There are two ways to process text files.
 - this will output passing values for the tests
 
 ## Plans for the Future
+I would really like this to be a playfround for a fully fledged docker app to do more language processing on. 
+This means learning a bit more about docker's functionality as well as seeing how that connected to other services
+like Kubernetes. 
 
-
-## Other Notes
-You might notice that I excluded the apostrophe from my data cleaning function. After thinking about it
-I determined that it is possible to make a dictionary containing translations for an excluded comma string
-and its full word counterpart eg {'should t': 'should not}. Although I think not 
+This brings me to my next plan, that I would like to refactor to consider handling huge amounts of data at one time. 
+I am not sure what that would take, but I imagine that it would involve a bit of learning about scalability. 
