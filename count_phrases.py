@@ -48,19 +48,8 @@ if not sys.stdin.isatty():
   phrase = count_common_phrases(cleaned_words)
   formats_output(phrase)
 
-# formats_output(['../origin_of_species.txt', '../moby_dick.txt'])
-# formats_output(['../moby_dick.txt'])
-
 #TEST RUNNER
-words = get_words_from_files((['../moby_dick.txt']))
+words = get_words_from_files((['origin_of_species.txt']))
 cleaned_words = clean_word_list(words)
 phrase = count_common_phrases(cleaned_words)
 formats_output(phrase)
-
-# species length = 209750
-# moby length = 215830
-# import pdb; pdb.set_trace() 
-
-# cat ../moby_dick.txt | python ./count_phrases.py
-# python count_phrases.py
-# python -m nose
