@@ -19,10 +19,9 @@ def clean_word_list(words):
       if ' ' in word:
         word_list = word.split()
         cleaned_list += word_list
-      if word != '' and word != ' ':
+      elif word != '' and word != ' ':
         cleaned_list.append(word) 
   return cleaned_list
-
 
 def count_common_phrases(text_file_path):
   words = get_words_from_files(text_file_path)
