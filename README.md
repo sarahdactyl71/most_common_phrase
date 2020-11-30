@@ -27,6 +27,7 @@ There are two ways to process text files.
 
 ## Plans for the Future
 I would really like this to be a playground for a fully fledged docker app to do more language processing on. 
-This means learning a bit more about docker's full functionality. 
+I think it might be cool to examine an author's or artist's full catalogue and see what phrases or words they
+tend to lean on. This means learning a bit more about docker's full functionality. 
 
 I would also like to add support for unicode characters.
