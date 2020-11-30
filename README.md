@@ -6,8 +6,12 @@ There are two ways to process text files.
 
 - The first is to run `python count_phrases.py` in the root directory.
 - This will put up a prompt asking you to input the paths to your textfiles.
-- If you would like to enter more than one file just separate the files by a comma eg. `../origin_of_species.txt', '../moby_dick.txt'`
-- From there this should output the top 100 most common three word sequences.
+- If you would like to enter more than one file just separate the files by a comma e.g. `../origin_of_species.txt, ../moby_dick.txt`
+- NOTE: no need to wrap the text files in quotes when you enter in your relative path, 
+these will already be processed as strings. 
+- From there, this should output the top 100 most common three word sequences.
+
+You can also use `stdin` to pipe a text file to the script
 
 - The second way to run this file is to use stdin to process a text file. 
 - You will run this command in your terminal: `cat <relative_path_to_file.txt> | python ./count_phrases.py`
