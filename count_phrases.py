@@ -8,8 +8,9 @@ def get_words_from_files(text_file_path):
     return words
   else:
     for files in text_file_path:
+      print(files)
       words += open(files).read().lower().split()
-      return words
+    return words
 
 def clean_word_list(words):
   cleaned_list = []
@@ -29,6 +30,8 @@ def count_common_phrases(words):
   while counter < len(words):
     sections = slice(counter, (counter+3))
     phrase = words[sections]
+    if len(phrase) != 3:
+      break
     three_word_sequence = ' '.join(phrase)
     if not three_word_sequence in common_phrase_dict:
       common_phrase_dict[three_word_sequence] = 1
@@ -42,15 +45,16 @@ def formats_output(popular_phrase):
   for pair in popular_phrase:
     print("{} - {}".format(pair[0], pair[1]))
 
+#Running files by piping them in to stdin
 if not sys.stdin.isatty():
   words = get_words_from_files(sys.stdin)
   cleaned_words = clean_word_list(words)
   phrase = count_common_phrases(cleaned_words)
   formats_output(phrase)
-
-#FILE RUNNER
-file_path = input("Enter your textfile path: ") 
-words = get_words_from_files(([file_path]))
-cleaned_words = clean_word_list(words)
-phrase = count_common_phrases(cleaned_words)
-formats_output(phrase)
+else:
+#Running files by setting them as arguments
+  arguements = (sys.argv)[1:]
+  words = get_words_from_files((arguements))
+  cleaned_words = clean_word_list(words)
+  phrase = count_common_phrases(cleaned_words)
+  formats_output(phrase)
