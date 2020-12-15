@@ -2,26 +2,27 @@
 A command line tool that counts the most common three word sequences from a text file. 
 
 ## How to Run the Program
-There are two ways to process text files.
+There are two ways to process text files:
 
-- The first is to run `python count_phrases.py` in the root directory.
-- This will put up a prompt asking you to input the paths to your textfiles.
-- If you would like to enter more than one file just separate the files by a comma e.g. `../origin_of_species.txt, ../moby_dick.txt`
+- The first is to run `python count_phrases.py <paths to textfiles>` in the root directory. The text files
+will be relative paths to the files on your machine. E.g. `python count_phrases.py text_file_one.txt ../text_file_two.txt`
 - NOTE: no need to wrap the text files in quotes when you enter in your relative path, 
 these will already be processed as strings. 
 - From there, this should output the top 100 most common three word sequences.
 
-You can also use `stdin` to pipe a text file to the script
+You can also use `stdin` to pipe a text file to the script:
 
 - The second way to run this file is to use stdin to process a text file. 
 - You will run this command in your terminal: `cat <relative_path_to_file.txt> | python ./count_phrases.py`
 - This will automatically output the top 100 most common three word sequences. 
 
+You may also use echo to the same effect:
+
+- echo "dogs are great dogs are great dogs are great dogs are great" | python count_phrases.py
+
 ## Running Using Docker
 - For ease of testing and as an example I have included a text file in this repo. 
-- In the root directory run `docker run -it --rm --name my-running-script -v "$PWD":/usr/src/myapp -w /usr/src/myapp python:3 python count_phrases.py`
-- This will throw a prompt asking for the path to your file. 
-- Type in your input, for this app I used `origin_of_specied.txt`
+- In the root directory run `docker run -it --rm --name my-running-script -v "$PWD":/usr/src/myapp -w /usr/src/myapp python:3 python count_phrases.py origin_of_species.txt`
 - This should output 100 of the most common phrases for that text file. 
 
 ## Running the Test Suite
